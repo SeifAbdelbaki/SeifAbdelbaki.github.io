@@ -58,6 +58,7 @@ function displayBookmark(indexOfWebsite) {
     }
   }
 
+
   visitBtns = document.querySelectorAll(".btn-visit");
   if (visitBtns) {
     for (var l = 0; l < visitBtns.length; l++) {
@@ -81,6 +82,7 @@ function capitalize(str) {
   return strArr.join("");
 }
 
+
 submitBtn.addEventListener("click", function () {
   if (
     siteName.classList.contains("is-valid") &&
@@ -102,7 +104,6 @@ submitBtn.addEventListener("click", function () {
 });
 
 
-
 function deleteBookmark(e) {
   tableContent.innerHTML = "";
   var deletedIndex = e.target.dataset.index;
@@ -112,6 +113,7 @@ function deleteBookmark(e) {
   }
   localStorage.setItem("bookmarksList", JSON.stringify(bookmarks));
 }
+
 
 function visitWebsite(e) {
   var websiteIndex = e.target.dataset.index;
@@ -125,7 +127,7 @@ function visitWebsite(e) {
 
 
 var nameRegex = /^\w{3,}(\s+\w+)*$/;
-var urlRegex = /^(https?:\/\/)?(w{3}\.)?\w+\.\w{2,}\/?(:\d{2,5})?(\/\w+)*$/;
+var urlRegex = /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)*$/;
 
 siteName.addEventListener("input", function () {
   validate(siteName, nameRegex);
@@ -145,4 +147,3 @@ function validate(element, regex) {
     element.classList.remove("is-valid");
   }
 }
-
