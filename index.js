@@ -147,3 +147,21 @@ function validate(element, regex) {
     element.classList.remove("is-valid");
   }
 }
+
+function closeModal() {
+  boxModal.classList.add("d-none");
+}
+
+closeBtn.addEventListener("click", closeModal);
+
+document.addEventListener("keydown", function (e) {
+  if (e.key == "Escape") {
+    closeModal();
+  }
+});
+
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains("box-info")) {
+    closeModal();
+  }
+});
